@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videojuegos de Seguridad y Salud</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="burbuja burbuja1"></div>
+  <div class="burbuja burbuja2"></div>
+  <div class="burbuja burbuja3"></div>
+  <div class="burbuja burbuja4"></div>
+
+  <header>
+    <h1>🎮 Seguridad y Salud en el Trabajo</h1>
+    <p>¡Aprender y jugar nunca fue tan seguro ni tan divertido!</p>
+  </header>
+
+  <nav>
+    <button onclick="mostrarContenido('juegos')" class="active" id="btn-juegos">Juegos</button>
+    <button onclick="mostrarContenido('info')" id="btn-info">¿Por qué es importante?</button>
+  </nav>
+
+  <main>
+    <section id="juegos" class="activo">
+      <h2>Elige un videojuego educativo</h2>
+      <div class="tarjetas">
+        <div class="tarjeta" onclick="empezarJuego('Quiz de Equipos de Protección')">
+          <img src="https://img.icons8.com/color/96/safety-helmet.png" alt="Quiz EPP" />
+          <h3>Quiz de Equipos de Protección</h3>
+          <p>¿Sabes qué EPP usar? ¡Pon a prueba tus conocimientos!</p>
+        </div>
+        <div class="tarjeta" onclick="empezarJuego('Identifica Peligros')">
+          <img src="https://img.icons8.com/color/96/warning-shield.png" alt="Identifica Peligros" />
+          <h3>Identifica el Peligro</h3>
+          <p>¡Detecta riesgos en escenarios simulados como profesional!</p>
+        </div>
+        <div class="tarjeta" onclick="empezarJuego('Simulador de Emergencias')">
+          <img src="https://img.icons8.com/color/96/fire-extinguisher.png" alt="Simulador Emergencias" />
+          <h3>Simulador de Emergencias</h3>
+          <p>Responde de forma segura frente a accidentes inesperados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="info">
+      <h2>¿Por qué jugar estos videojuegos?</h2>
+      <ul>
+        <li>Desarrolla mejores hábitos de seguridad en el trabajo.</li>
+        <li>Reconoce peligros y reduce accidentes en la vida real.</li>
+        <li>Aprenderás de manera entretenida y práctica.</li>
+        <li>Fortalece la cultura preventiva en tu empresa.</li>
+      </ul>
+    </section>
+  </main>
+
+  <div id="modal-juego" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <h2 id="nombre-juego"></h2>
+      <p>¡El juego estará disponible muy pronto!<br>Gracias por tu interés.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Seguridad y Salud en el Trabajo · Página creada para aprender jugando
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
