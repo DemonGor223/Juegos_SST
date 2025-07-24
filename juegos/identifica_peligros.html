@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifica el Peligro</title>
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #eaf6fa;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #escenario-juego {
+            width: 800px;
+            height: 600px;
+            max-width: 100vw;
+            max-height: 80vh;
+            aspect-ratio: 4/3;
+            margin: 40px auto;
+            border: 2px solid #333;
+            background: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        .peligro {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .peligro:hover {
+            transform: scale(1.2);
+        }
+        #mensaje {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Identifica el Peligro</h1>
+    <div id="escenario-juego">
+        <!-- Los peligros aparecerán aquí -->
+    </div>
+    <div id="mensaje"></div>
+
+    <script>
+        // Ejemplo de peligros en el escenario
+        const peligros = [
+            { id: 1, nombre: "Cable suelto", x: 150, y: 400, img: "https://img.icons8.com/color/64/electrical.png" },
+            { id: 2, nombre: "Líquido derramado", x: 500, y: 350, img: "https://img.icons8.com/color/64/spill.png" },
+            { id: 3, nombre: "Caja mal apilada", x: 300, y: 200, img: "https://img.icons8.com/color/64/box.png" }
+        ];
+
+        const escenario = document.getElementById('escenario-juego');
+        const mensaje = document.getElementById('mensaje');
+
+        peligros.forEach(peligro => {
+            const img = document.createElement('img');
+            img.src = peligro.img;
+            img.alt = peligro.nombre;
+            img.className = 'peligro';
+            img.style.left = peligro.x + 'px';
+            img.style.top = peligro.y + 'px';
+            img.width = 64;
+            img.height = 64;
+            img.onclick = () => {
+                mensaje.textContent = `¡Bien hecho! Identificaste: ${peligro.nombre}`;
+                img.style.opacity = 0.5;
+                img.style.pointerEvents = 'none';
+            };
+            escenario.appendChild(img);
+        });
+    </script>
+</body>
+</html>
