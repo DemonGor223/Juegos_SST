@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     { top: '688px', left: '577px', width: '16px' },// 8vo extintor de la segunda oficina de abajo
     { top: '575px', left: '982px', width: '16px' },// 9no extintor al lado de la pared de la oficina derecha del fondo
     { top: '612px', left: '131px', width: '16px' },// 10mo extintor del fondo de la parte izquieda antes de entrar a las oficinas
-    { top: '471px', left: '301px', width: '16px' },
+    { top: '471px', left: '301px', width: '16px' },// 11mo extintor al lado de los muebles azules
   ];
 
   extintoresData.forEach((data, idx) => {

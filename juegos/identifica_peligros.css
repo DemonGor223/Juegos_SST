@@ -1,11 +1,11 @@
 /* Sprite con aura neón */
 .sprite-neon {
-  box-shadow: 0 0 16px 6px #00fff7, 0 0 32px 12px #00fff780;
+  box-shadow: 0 0 6px 2px #00fff733;
   border-radius: 0;
   transition: box-shadow 0.2s;
 }
 .sprite-neon:hover {
-  box-shadow: 0 0 32px 16px #00fff7, 0 0 64px 24px #00fff7cc;
+  box-shadow: 0 0 12px 4px #00fff766;
 }
 /* Viewport para drag */
 #viewport {
