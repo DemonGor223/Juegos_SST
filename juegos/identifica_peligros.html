@@ -7,18 +7,17 @@
   <link rel="stylesheet" href="identifica_peligros.css" />
 </head>
 <body>
-  <div id="game-container">
-    <div id="score">Puntaje: 0</div>
 
-    <!-- Sprites interactivos -->
-    <img src="sprites/CableAzul2.png" class="sprite" id="cable1" style="top: 420px; left: 100px; width: 100px;" />
-    <img src="sprites/CableCeleste1.png" class="sprite" id="cable2" style="top: 430px; left: 250px; width: 100px;" />
-    <img src="sprites/CableVerde7.png" class="sprite" id="cable3" style="top: 450px; left: 400px; width: 100px;" />
-    <img src="sprites/Charco.png" class="sprite" id="charco" style="top: 480px; left: 600px; width: 90px;" />
-    <img src="sprites/Extintor.png" class="sprite" id="extintor" style="top: 200px; left: 100px; width: 60px;" />
-    <img src="sprites/SeñalPiso.png" class="sprite" id="senal" style="top: 300px; left: 500px; width: 80px;" />
+  <div id="viewport">
+    <div id="game-container">
+      <div id="score">Puntaje: 0</div>
+      <!-- Los sprites interactivos se agregarán dinámicamente con JS -->
+    </div>
+  </div>
 
-    <!-- Agrega más peligros aquí si es necesario -->
+  <div id="zoom-controls">
+    <button id="zoom-in" title="Acercar">+</button>
+    <button id="zoom-out" title="Alejar">-</button>
   </div>
 
   <script src="identifica_peligros.js"></script>

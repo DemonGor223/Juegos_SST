@@ -1,27 +1,95 @@
+/* Sprite con aura neón */
+.sprite-neon {
+  box-shadow: 0 0 16px 6px #00fff7, 0 0 32px 12px #00fff780;
+  border-radius: 0;
+  transition: box-shadow 0.2s;
+}
+.sprite-neon:hover {
+  box-shadow: 0 0 32px 16px #00fff7, 0 0 64px 24px #00fff7cc;
+}
+/* Viewport para drag */
+#viewport {
+  width: 100vw;
+  max-width: 100vw;
+  height: 80vh;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  touch-action: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#viewport.dragging {
+  cursor: grab;
+}
+/* Controles de zoom */
+#zoom-controls {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+}
+#zoom-controls button {
+  background: #222;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0006;
+  transition: background 0.2s, color 0.2s;
+}
+#zoom-controls button:hover {
+  background: #fff;
+  color: #222;
+}
 body {
-  background-color: #f9f9f9;
+  background: #222;
   font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
 #game-container {
   position: relative;
-  width: 800px;
-  height: 600px;
-  background-image: url('sprites/EscenarioSst.png');
-  background-size: cover;
-  border: 3px solid #444;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100vw;
+  max-width: 1000px;
+  aspect-ratio: 4/3;
+  height: auto;
+  background: url('sprites/EscenarioSSt.png') no-repeat center center;
+  background-size: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 2px solid #444;
+  box-shadow: 0 0 20px #0008;
+  overflow: hidden;
 }
+
 
 .sprite {
   position: absolute;
+  z-index: 2;
+  user-select: none;
+  touch-action: none;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  image-rendering: pixelated;
+  /* Alternativamente, para navegadores que no soportan pixelated: */
+  image-rendering: crisp-edges;
 }
 
 .sprite:hover {
@@ -31,11 +99,32 @@ body {
 #score {
   position: absolute;
   top: 10px;
-  right: 10px;
-  background: rgba(255,255,255,0.85);
-  padding: 8px 14px;
-  border-radius: 6px;
+  left: 10px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  z-index: 10;
   font-weight: bold;
-  font-size: 16px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 1200px) {
+  #game-container {
+    width: 100vw;
+    max-width: 100vw;
+    aspect-ratio: 4/3;
+  }
+}
+
+@media (max-width: 600px) {
+  #game-container {
+    width: 100vw;
+    max-width: 100vw;
+    aspect-ratio: 4/3;
+  }
+  .sprite {
+    /* Opcional: reducir tamaño de los sprites en móvil si es necesario */
+  }
 }
