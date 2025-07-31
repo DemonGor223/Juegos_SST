@@ -8,11 +8,69 @@
 </head>
 <body>
 
+  <!-- Modal de finalización -->
+  <div id="endgame-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+      <h2>¡Juego finalizado!</h2>
+      <div id="endgame-balance"></div>
+      <div id="endgame-explanation" style="margin-top:18px;"></div>
+      <div class="modal-buttons">
+        <button id="restart-btn">Jugar de nuevo</button>
+        <button id="go-home-btn-end">Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="sfx-correcto" src="sprites/campanita.mp3" preload="auto"></audio>
+
+  <!-- Modal de bienvenida -->
+  <div id="welcome-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>¡Bienvenido al juego de Seguridad y Salud!</h2>
+      <p>Lee atentamente las instrucciones antes de comenzar:</p>
+      <ul>
+        <li>Observa el escenario central y busca peligros o riesgos.</li>
+        <li>Haz clic a los elementos que representen un riesgo de accidente o elementos que indiquen una falta reglamentaria en el cuidado de los trabjadores.</li>
+        <li>Cada vez que corrijas un riesgo, sumarás puntos.</li>
+        <li>Tienes 2 minutos para encontrar todos los riesgos posibles.</li>
+        <li>Puedes hacer zoom y mover el escenario con los controles inferiores.</li>
+      </ul>
+      <div class="modal-buttons">
+        <button id="start-game-btn">¡Listo para jugar!</button>
+        <button id="go-home-btn">Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="timer-container">
+    <span id="timer-minutes">02</span>:<span id="timer-seconds">00</span>
+  </div>
+
+
+  <div class="side-panel left-panel">
+    <h2>Instrucciones</h2>
+    <ul>
+      <li>Observa el escenario central.</li>
+      <li>Identifica los peligros y riesgos haciendo clic sobre ellos.</li>
+      <li>Cada vez que corrijas un riesgo, sumarás puntos.</li>
+      <li>¡Intenta encontrar todos los riesgos!</li>
+    </ul>
+  </div>
+
   <div id="viewport">
     <div id="game-container">
       <div id="score">Puntaje: 0</div>
       <!-- Los sprites interactivos se agregarán dinámicamente con JS -->
     </div>
+  </div>
+
+  <div class="side-panel right-panel">
+    <h2>¿Qué debes hacer?</h2>
+    <ul>
+      <li>Haz clic en los posibles causantes de accidentes y faltas de reglamentacion anti riesgos.</li>
+      <li>Corrige todos los riesgos para ganar el máximo puntaje.</li>
+      <li>Puedes hacer zoom y mover el escenario con los controles inferiores.</li>
+    </ul>
   </div>
 
   <div id="zoom-controls">

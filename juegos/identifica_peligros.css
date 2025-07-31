@@ -1,3 +1,152 @@
+/* Modal de bienvenida */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 30, 47, 0.96);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: linear-gradient(90deg, #1e1e2f 80%, #6ef3ff 100%);
+  color: #fff;
+  border-radius: 32px;
+  box-shadow: 0 8px 40px #00fff7cc, 0 0 0 8px #222b inset;
+  border: 2px solid #6ef3ff;
+  padding: 36px 48px 32px 48px;
+  max-width: 420px;
+  width: 90vw;
+  text-align: left;
+  animation: scorePulse 2s infinite alternate;
+}
+.modal-content h2 {
+  margin-top: 0;
+  color: #6ef3ff;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+.modal-content ul {
+  padding-left: 20px;
+  margin-bottom: 18px;
+}
+.modal-content li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.modal-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+}
+.modal-buttons button {
+  background: #222;
+  color: #fff;
+  border: 2px solid #6ef3ff;
+  border-radius: 18px;
+  padding: 10px 24px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #00fff7cc;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.modal-buttons button:hover {
+  background: #6ef3ff;
+  color: #222;
+  border: 2px solid #fff;
+}
+/* Temporizador superior */
+#timer-container {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  background: linear-gradient(90deg, #1e1e2f 80%, #6ef3ff 100%);
+  color: #fff;
+  padding: 10px 36px;
+  border-radius: 24px 24px 24px 24px;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 0 4px 24px #00fff7cc, 0 0 0 4px #222b inset;
+  border: 2px solid #6ef3ff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #00fff7cc, 0 1px 0 #222b;
+  transition: box-shadow 0.3s, border 0.3s;
+  animation: scorePulse 2s infinite alternate;
+  pointer-events: none;
+}
+#timer-minutes, #timer-seconds {
+  font-variant-numeric: tabular-nums;
+}
+/* Paneles laterales de instrucciones */
+.side-panel {
+  position: fixed;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: rgba(30, 30, 47, 0.96);
+  color: #fff;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 32px 18px 32px 18px;
+  box-shadow: 0 0 24px #00fff733;
+  font-size: 1.1em;
+  overflow-y: auto;
+}
+.left-panel {
+  left: 0;
+  border-radius: 0 32px 32px 0;
+  border-right: 2px solid #6ef3ff;
+}
+.right-panel {
+  right: 0;
+  border-radius: 32px 0 0 32px;
+  border-left: 2px solid #6ef3ff;
+}
+.side-panel h2 {
+  margin-top: 0;
+  color: #6ef3ff;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+}
+.side-panel ul {
+  padding-left: 18px;
+  margin: 0;
+}
+.side-panel li {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .side-panel {
+    display: none;
+  }
+}
+/* Cables interactivos con destello morado claro */
+.sprite-cable {
+  box-shadow: 0 0 0 0 #c77dff00;
+  transition: box-shadow 0.2s;
+}
+.sprite-cable:hover {
+  box-shadow: 0 0 12px 4px #c77dff;
+}
+/* Charco interactivo con destello blanco */
+.sprite-charco {
+  box-shadow: 0 0 0 0 #fff0;
+  transition: box-shadow 0.2s;
+}
+.sprite-charco:hover {
+  box-shadow: 0 0 12px 4px #fff;
+}
 /* Sprite con aura neón */
 .sprite-neon {
   box-shadow: 0 0 6px 2px #00fff733;
@@ -98,17 +247,34 @@ body {
 
 #score {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 18px;
+  left: 18px;
   color: #fff;
-  background: rgba(0,0,0,0.5);
-  padding: 6px 16px;
-  border-radius: 8px;
-  font-size: 1.2em;
+  background: linear-gradient(90deg, #1e1e2f 80%, #6ef3ff 100%);
+  padding: 12px 32px 12px 24px;
+  border-radius: 16px 32px 16px 32px;
+  font-size: 1.4em;
   z-index: 10;
   font-weight: bold;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 24px #00fff7cc, 0 0 0 4px #222b inset;
+  border: 2px solid #6ef3ff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #00fff7cc, 0 1px 0 #222b;
+  transition: box-shadow 0.3s, border 0.3s;
+  animation: scorePulse 2s infinite alternate;
 }
+
+@keyframes scorePulse {
+  0% {
+    box-shadow: 0 4px 24px #00fff7cc, 0 0 0 4px #222b inset;
+    border-color: #6ef3ff;
+  }
+  100% {
+    box-shadow: 0 8px 32px #6ef3ffcc, 0 0 0 8px #222b inset;
+    border-color: #00fff7;
+  }
+}
+
 
 @media (max-width: 1200px) {
   #game-container {
